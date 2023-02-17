@@ -11,6 +11,9 @@
     <link rel="shortcut icon" href="/assets/images/logo/favicon.svg" type="image/x-icon">
     <link rel="shortcut icon" href="/assets/images/logo/favicon.png" type="image/png">
     <link rel="stylesheet" href="/assets/css/shared/iconly.css">
+    <link rel="stylesheet" href="/assets/css/pages/fontawesome.css">
+    <link rel="stylesheet" href="/assets/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="/assets/css/pages/datatables.css">
 
 </head>
 
@@ -146,6 +149,9 @@
 <!-- Need: Apexcharts -->
 <script src="/assets/extensions/apexcharts/apexcharts.min.js"></script>
 <script src="/assets/js/pages/dashboard.js"></script>
+<script src="/assets/extensions/jquery/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
+<script src="/assets/js/pages/datatables.js"></script>
 
 </body>
 

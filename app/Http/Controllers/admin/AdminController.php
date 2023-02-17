@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
@@ -40,7 +41,19 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $admin = User::where('role', 'admin');
+        $admin = User::create([
+            'kode' => $request->kode,
+            'fullname' => $request->fullname,
+            'username' => $request->username,
+            'password' => bcrypt($request->password),
+            'role' => 'admin',
+            'verif' => 'verified',
+            'join_date' => Carbon::now(),
+            'foto' => $request->foto,
+        ]);
+
+        return redirect()->back();
     }
 
     /**
@@ -74,7 +87,8 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $admin = User::find($id);
+
     }
 
     /**

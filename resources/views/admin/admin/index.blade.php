@@ -6,14 +6,14 @@
         </div>
         <div class="col-6 col-lg-6 col-md-6 d-flex justify-content-end" style="margin-bottom: 0.5rem;">
             <!-- Button trigger modal -->
-            {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Launch demo modal
-            </button> --}}
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+             Tambah     
+            </button>
         </div>
     </div>
     <div class="card">
         <div class="card-body">
-            <table class="table">
+            <table class="table" id="table1">
                 <thead>
                     <tr>
                         <td>No</td>
@@ -45,4 +45,5 @@
         </div>
     </div>
     </div>
+@include('admin.admin.create')
 @endsection

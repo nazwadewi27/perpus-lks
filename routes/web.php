@@ -38,6 +38,7 @@ Route::prefix('admin')->group( function(){
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
     //admin
     Route::get('/administrator', [AdminController::class, 'index'])->name('admin.index');
+    Route::post('/administrator/add', [AdminController::class, 'store'])->name('admin.add');
     //anggota
     Route::get('/anggota', [AnggotaController::class, 'index'])->name('anggota.index');
     //buku
