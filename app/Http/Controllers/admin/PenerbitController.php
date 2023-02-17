@@ -15,7 +15,11 @@ class PenerbitController extends Controller
      */
     public function index()
     {
-        //
+        $penerbit = Penerbit::all();
+        $count = count($penerbit);
+        $kode = 'P0' . $count+1;
+
+        return view('admin.penerbit.index', compact('penerbit', 'kode'));
     }
 
     /**

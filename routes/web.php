@@ -4,6 +4,8 @@ use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\AnggotaController;
 use App\Http\Controllers\admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\admin\BukuController;
+use App\Http\Controllers\admin\KategoriController;
+use App\Http\Controllers\admin\PenerbitController;
 use App\Http\Controllers\user\DashboardController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -40,4 +42,9 @@ Route::prefix('admin')->group( function(){
     Route::get('/anggota', [AnggotaController::class, 'index'])->name('anggota.index');
     //buku
     Route::get('/buku', [BukuController::class, 'index'])->name('buku.index');
+    //penerbit
+    Route::get('/penerbit', [PenerbitController::class, 'index'])->name('penerbit.index');
+    //kategori
+    Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori.index');
+    
 });

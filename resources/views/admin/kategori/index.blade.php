@@ -2,7 +2,7 @@
 @section('content')
     <div class="row justify-content-between">
         <div class="col-6 col-lg-6 col-md-6">
-            <h3>Data Anggota</h3>
+            <h3>Data Kategori</h3>
         </div>
         <div class="col-6 col-lg-6 col-md-6 d-flex justify-content-end" style="margin-bottom: 0.5rem;">
             <!-- Button trigger modal -->
@@ -17,23 +17,17 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>kode Anggota</th>
-                        <th>Nis</th>
-                        <th>Nama Lengkap</th>
-                        <th>Kelas</th>
-                        <th>Alamat</th>
+                        <th>Kode</th>
+                        <th>Nama Kategori</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($anggota as $key => $ang)
+                    @foreach ($kategori as $key => $k)
                         <tr>
                             <td>{{ $key + 1 }}</td>
-                            <td>{{ $ang->kode }}</td>
-                            <td>{{ $ang->nis }}</td>
-                            <td>{{ $ang->fullname }}</td>
-                            <td>{{ $ang->kelas }}</td>
-                            <td>{{ $ang->alamat }}</td>
+                            <td>{{ $k->kode }}</td>
+                            <td>{{ $k->nama }}</td>
                             <td>
                                 <button class="btn btn-primary">update</button>
                                 <button class="btn btn-danger">hapus</button>

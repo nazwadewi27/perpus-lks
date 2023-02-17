@@ -58,7 +58,7 @@
                                     <a href="{{ route('admin.index')}}">Data Administrator</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="">Data Penerbit</a>
+                                    <a href="{{ route('penerbit.index')}}">Data Penerbit</a>
                                 </li>
                                 <li class="submenu-item ">
                                     <a href="">Data Peminjaman</a>
@@ -76,7 +76,7 @@
                                     <a href="{{ route('buku.index')}}">Data Buku</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="">Kategori Buku</a>
+                                    <a href="{{ route('kategori.index')}}">Kategori Buku</a>
                                 </li>
                             </ul>
                         </li>
