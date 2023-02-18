@@ -30,7 +30,7 @@
                             <td>{{ $p->tanggal_pengembalian }}</td>
                             <td>{{ $p->kondisi_buku_saat_dipinjam }}</td>
                             <td>{{ $p->kondisi_buku_saat_dikembalikan }}</td>
-                            <td>Rp. {{ $p->denda }}</td>
+                            <td>Rp. {{ $p->denda != null ? $p->denda : '0' }}</td>
                         </tr>
                     @endforeach
                 </tbody>
