@@ -41,11 +41,14 @@ Route::prefix('admin')->group( function(){
     Route::post('/administrator/add', [AdminController::class, 'store'])->name('admin.add');
     //anggota
     Route::get('/anggota', [AnggotaController::class, 'index'])->name('anggota.index');
+    Route::post('/anggota/add', [AnggotaController::class, 'store'])->name('anggota.add');
     //buku
     Route::get('/buku', [BukuController::class, 'index'])->name('buku.index');
+    Route::post('/buku/add', [BukuController::class, 'store'])->name('buku.add');
     //penerbit
     Route::get('/penerbit', [PenerbitController::class, 'index'])->name('penerbit.index');
+    Route::post('/penerbit/add', [PenerbitController::class, 'store'])->name('penerbit.add');
     //kategori
     Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori.index');
-    
+    Route::post('/kategori/add', [KategoriController::class, 'store'])->name('kategori.add');
 });

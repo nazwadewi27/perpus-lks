@@ -42,7 +42,10 @@ class BukuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $buku = Buku::all();
+        $buku = Buku::create($request->all());
+
+        return redirect()->back();
     }
 
     /**

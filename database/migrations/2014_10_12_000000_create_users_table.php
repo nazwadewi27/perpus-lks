@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('username', 50)->unique();
             $table->string('password');
             $table->string('kelas',50)->nullable();
-            $table->text('alamat');
+            $table->text('alamat')->nullable();
             $table->enum('verif' , ['verified' , 'unverified'])->default('unverified');
             $table->enum('role', ['admin' , 'user']);
             $table->date('join_date');

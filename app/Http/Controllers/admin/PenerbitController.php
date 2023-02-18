@@ -40,7 +40,10 @@ class PenerbitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $penerbit = Penerbit::all();
+        $penerbit = Penerbit::create($request->all());
+
+        return redirect()->back();
     }
 
     /**

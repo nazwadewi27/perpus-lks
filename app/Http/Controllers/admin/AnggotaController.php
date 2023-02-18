@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Carbon\Carbon;
 
 class AnggotaController extends Controller
 {
@@ -40,7 +41,23 @@ class AnggotaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $anggota = User::where('role', 'user')->get();
+        $anggota = User::create([
+            'kode' => $request->kode,
+            'nis' => $request->nis,
+            'fullname' => $request->fullname,
+            'username' => $request->username,
+            'password' => bcrypt($request->password),
+            'kelas' => $request->kelas,
+            'alamat' => $request->alamat,
+            'verif' => 'verified',
+            'role' => 'user',
+            'join_date' => Carbon::now(),
+            'terakhir_login' => $request->terakhir_login,
+            'foto' => $request->foto,
+        ]);
+
+        return redirect()->back();
     }
 
     /**

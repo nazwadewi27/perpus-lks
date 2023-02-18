@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Mazer Admin Dashboard</title>
+    <title>Perpustakaan LKS</title>
     
     <link rel="stylesheet" href="/assets/css/main/app.css">
     <link rel="stylesheet" href="/assets/css/main/app-dark.css">
@@ -12,8 +12,8 @@
     <link rel="shortcut icon" href="/assets/images/logo/favicon.png" type="image/png">
     <link rel="stylesheet" href="/assets/css/shared/iconly.css">
     <link rel="stylesheet" href="/assets/css/pages/fontawesome.css">
-    <link rel="stylesheet" href="/assets/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css">
-    <link rel="stylesheet" href="/assets/css/pages/datatables.css">
+    <link rel="stylesheet" href="/assets/extensions/simple-datatables/style.css">
+    <link rel="stylesheet" href="/assets/css/pages/simple-datatables.css">
 
 </head>
 
@@ -61,10 +61,10 @@
                                     <a href="{{ route('admin.index')}}">Data Administrator</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="{{ route('penerbit.index')}}">Data Penerbit</a>
+                                    <a href="">Data Peminjaman</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="">Data Peminjaman</a>
+                                    <a href="{{ route('penerbit.index')}}">Data Penerbit</a>
                                 </li>
                             </ul>
                         </li>
@@ -150,8 +150,9 @@
 <script src="/assets/extensions/apexcharts/apexcharts.min.js"></script>
 <script src="/assets/js/pages/dashboard.js"></script>
 <script src="/assets/extensions/jquery/jquery.min.js"></script>
-<script src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
-<script src="/assets/js/pages/datatables.js"></script>
+<script src="/assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
+<script src="/assets/js/pages/simple-datatables.js"></script>
+
 
 </body>
 

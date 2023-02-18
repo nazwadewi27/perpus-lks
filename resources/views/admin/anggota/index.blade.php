@@ -6,9 +6,9 @@
         </div>
         <div class="col-6 col-lg-6 col-md-6 d-flex justify-content-end" style="margin-bottom: 0.5rem;">
             <!-- Button trigger modal -->
-            {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalang">
-                Tambah Anggota
-            </button> --}}
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#anggota">
+                <i class="bi bi-person-plus-fill"></i> Tambah     
+            </button>
         </div>
     </div>
     <div class="card">
@@ -35,8 +35,8 @@
                             <td>{{ $ang->kelas }}</td>
                             <td>{{ $ang->alamat }}</td>
                             <td>
-                                <button class="btn btn-primary">update</button>
-                                <button class="btn btn-danger">hapus</button>
+                                <button class="btn btn-primary"><i class="bi bi-pencil-square"></i></button>
+                                <button class="btn btn-danger"><i class="bi bi-trash3-fill"></i></button></td>
                             </td>
                         </tr>
                     @endforeach
@@ -44,4 +44,5 @@
             </table>
         </div>
     </div>
+@include('admin.anggota.create')
 @endsection

@@ -18,7 +18,7 @@ class Buku extends Model
         'isbn',
         'j_buku_baik',
         'j_buku_rusak',
-        ];
+    ];
     
         public function kategori(){
             return $this->belongsTo(Kategori::class);

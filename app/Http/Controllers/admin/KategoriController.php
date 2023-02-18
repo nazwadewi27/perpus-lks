@@ -16,8 +16,10 @@ class KategoriController extends Controller
     public function index()
     {
         $kategori = Kategori::all();
+        $count = count($kategori);
+        $kode = 'B0'. $count+1;
 
-        return view('admin.kategori.index', compact('kategori'));
+        return view('admin.kategori.index', compact('kategori', 'kode'));
     }
 
     /**
@@ -38,7 +40,10 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $kategori = Kategori::all();
+        $kategori = Kategori::create($request->all());
+
+        return redirect()->back();
     }
 
     /**
