@@ -15,7 +15,9 @@ class PeminjamanController extends Controller
      */
     public function index()
     {
-        //
+        $peminjaman = Peminjaman::all();
+
+        return view('admin.peminjaman.index', compact('peminjaman'));
     }
 
     /**

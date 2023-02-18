@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\AnggotaController;
 use App\Http\Controllers\admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\admin\BukuController;
 use App\Http\Controllers\admin\KategoriController;
+use App\Http\Controllers\admin\PeminjamanController;
 use App\Http\Controllers\admin\PenerbitController;
 use App\Http\Controllers\user\DashboardController;
 use Illuminate\Support\Facades\Route;
@@ -36,6 +37,7 @@ Route::prefix('user')->group(function(){
 
 Route::prefix('admin')->group( function(){
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
     //admin
     Route::get('/administrator', [AdminController::class, 'index'])->name('admin.index');
     Route::post('/administrator/add', [AdminController::class, 'store'])->name('admin.add');
@@ -51,4 +53,5 @@ Route::prefix('admin')->group( function(){
     //kategori
     Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori.index');
     Route::post('/kategori/add', [KategoriController::class, 'store'])->name('kategori.add');
+    //peminjaman
 });

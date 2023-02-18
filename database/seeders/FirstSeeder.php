@@ -124,8 +124,9 @@ class FirstSeeder extends Seeder
             'buku_id' => '2',
             'tanggal_peminjaman' => '2023-06-01',
             'tanggal_pengembalian' => '2023-07-01',
-            'kondisi_buku_saat_dipinjam' =>'baik',
-            'denda' => null,
+            'kondisi_buku_saat_dipinjam' => 'baik',
+            'kondisi_buku_saat_dikembalikan' => 'baik',
+            'denda' => '0',
         ]);
 
         Peminjaman::create([

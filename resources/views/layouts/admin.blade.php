@@ -61,7 +61,7 @@
                                     <a href="{{ route('admin.index')}}">Data Administrator</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="">Data Peminjaman</a>
+                                    <a href="{{ route('peminjaman.index')}}">Data Peminjaman</a>
                                 </li>
                                 <li class="submenu-item ">
                                     <a href="{{ route('penerbit.index')}}">Data Penerbit</a>
