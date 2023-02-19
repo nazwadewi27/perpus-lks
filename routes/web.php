@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\BukuController;
 use App\Http\Controllers\admin\KategoriController;
 use App\Http\Controllers\admin\PeminjamanController;
 use App\Http\Controllers\admin\PenerbitController;
+use App\Http\Controllers\admin\IdentitasController;
 use App\Http\Controllers\user\DashboardController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -39,6 +40,9 @@ Route::prefix('admin')->group( function(){
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
     //peminjaman
     Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
+    //Identitas
+    Route::get('/identitas', [IdentitasController::class, 'index'])->name('admin.identitas');
+    Route::put('/identitas/update/{id}', [IdentitasController::class , 'update'])->name('admin.identitas.update');
     //admin
     Route::get('/administrator', [AdminController::class, 'index'])->name('admin.index');
     Route::post('/administrator/add', [AdminController::class, 'store'])->name('admin.add');

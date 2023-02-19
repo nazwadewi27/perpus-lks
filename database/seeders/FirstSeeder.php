@@ -188,7 +188,7 @@ class FirstSeeder extends Seeder
             'alamat_app' => 'Jl. SMEAN 6, Cawang, Kramat Jati, Jakarta Timur',
             'email_app' => 'email@smkn10jakarta.sch.id',
             'nomor_hp' => '081234567890',
-            'foto'      => null,
+            'foto'      => '',
         ]);
     }
 }

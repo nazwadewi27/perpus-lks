@@ -15,7 +15,9 @@ class IdentitasController extends Controller
      */
     public function index()
     {
-        //
+        $identitas = Identitas::first();
+
+        return view('admin.identitas', compact('identitas'));
     }
 
     /**
@@ -70,7 +72,25 @@ class IdentitasController extends Controller
      */
     public function update(Request $request, Identitas $identitas)
     {
-        //
+        if ($request->foto != null) {
+            $imageName = time() . '.' . $request->foto->extension();
+
+            $request->foto->move(public_path('img/identitas/'), $imageName);
+
+            $user = Identitas::find(1)->update($request->all());
+
+            $user2 = Identitas::find(1)->update([
+                "foto" => $imageName
+            ]);
+
+            if ($user && $user2) {
+                return redirect()->back();
+            }
+        } else {
+            $user = Identitas::find(1)->update($request->all());
+
+            return redirect()->back();
+        }
     }
 
     /**

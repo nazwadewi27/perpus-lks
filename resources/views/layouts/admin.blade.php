@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perpustakaan LKS</title>
+    <title>Perpustakaan USK</title>
     
     <link rel="stylesheet" href="/assets/css/main/app.css">
     <link rel="stylesheet" href="/assets/css/main/app-dark.css">
@@ -92,7 +92,7 @@
                         </li>
     
                         <li class="sidebar-item  ">
-                            <a href="#" class='sidebar-link'>
+                            <a href="{{ route('admin.identitas') }}" class='sidebar-link'>
                                 <i class="bi bi-file-earmark-medical-fill"></i>
                                 <span>Identitas Aplikasi</span>
                             </a>
@@ -120,7 +120,7 @@
     
                         <li class="sidebar-item {{ request()->is('logout*') ? 'active' : '' }} ">
                             <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();" class="sidebar-link">
+                                document.getElementById('logout-form').submit();" class="sidebar-link">
                                 <i class="bi bi-arrow-left-square-fill"></i>
                                 <span>Logout</span>
                             </a>
@@ -130,17 +130,116 @@
                             </form>
                         </li>
                     </ul>
-
                 </div>
             </div>
         </div>
-        <div id="main">
+        <div  id="main" class='layout-navbar'>
             <header class="mb-3">
-                <a href="#" class="burger-btn d-block d-xl-none">
-                    <i class="bi bi-justify fs-3"></i>
-                </a>
-            </header>
-            @yield('content')
+                <nav class="navbar navbar-expand navbar-light navbar-top" style="background-color: white">
+                  
+                    <a href="#" class="burger-btn d-block">
+                      <i class="bi bi-justify fs-3"></i>
+                    </a>
+        
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                      aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav ms-auto mb-lg-0">
+                        <li class="nav-item dropdown me-1">
+                          <a class="nav-link active dropdown-toggle text-gray-600" href="#" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="bi bi-envelope bi-sub fs-4"></i>
+                          </a>
+                          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                            {{-- @php
+                            $pesans = \App\Models\Pesan::where('status' , 'terkirim')
+                            ->where('pengirim_id' , '!=' , Auth::user()->id)
+                            ->where('penerima_id' , Auth::user()->id)
+                            ->orderBy('created_at' , 'desc')
+                            ->get();
+                            @endphp --}}
+                            <li>
+                              <h6 class="dropdown-header">Mail</h6>
+                            </li>
+                            {{-- @foreach ($pesans as $p)
+                            <form action="{{ route('user.pesan.masuk.update') }}" method="POST">
+                              @csrf
+                              <button class="dropdown-item" type="submit"><input type="hidden" name="id" value="{{ $p->id }}">
+                                <div class="row">
+                                  <div class="col-3">
+                                    <div class="user-img d-flex align-items-center">
+                                      <div class="avatar avatar-lg"> <img src="/assets/images/faces/1.jpg">
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col ms-2">
+                                    <p class="mb-0 font-bold">
+                                      {{ $p->pengirim->username }}</p>
+                                    <p class="mt-0 mb-0 font-thin text-sm">
+                                      {{ $p->isi }}</p>
+                                  </div>
+                                </div>
+                              </button>
+                            </form>
+                            @endforeach --}}
+                          </ul>
+                        </li>
+                        <li class="nav-item dropdown me-3">
+                          <a class="nav-link active dropdown-toggle text-gray-600" href="#" data-bs-toggle="dropdown"
+                            data-bs-display="static" aria-expanded="false">
+                            <i class="bi bi-bell bi-sub fs-4"></i>
+                          </a>
+                          <ul class="dropdown-menu dropdown-menu-end notification-dropdown"
+                            aria-labelledby="dropdownMenuButton">
+                            <li class="dropdown-header">
+                              <h6>Notifications</h6>
+                            </li>
+                            {{-- @foreach ($pemberitahuan as $infoPemberitahuan)
+        
+                            <li class="dropdown-item notification-item">
+                              <a class="d-flex align-items-center" href="#">
+                                <div class="notification-icon bg-primary">
+                                  <i class="bi bi-cart-check"></i>
+                                </div>
+                                <div class="notification-text ms-4">
+        
+                                  <p class="notification-subtitle font-thin text-sm">
+                                    {{ $infoPemberitahuan->isi }}
+                                  </p>
+                                </div>
+                              </a>
+                            </li>
+                            @endforeach --}}
+        
+        
+                          </ul>
+                        </li>
+                      </ul>
+                      <div class="dropdown">
+                        <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                          <div class="user-menu d-flex">
+                            <div class="user-name text-end me-3">
+                              {{-- <h6 class="mb-0 text-gray-600">{{ Auth::user()->username }}</h6>
+                              <p class="mb-0 text-sm text-gray-600">{{ Auth::user()->role }}</p> --}}
+                            </div>
+                            <div class="user-img d-flex align-items-center">
+                              <div class="avatar avatar-md">
+                                {{-- <img src="/img/profile/{{ Auth::user()->foto == null ? 'profile.png' : Auth::user()->foto  }}" /> --}}
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  
+                </nav>
+              </header>
+              <div id="main-content">
+                @yield('content')
+              </div>
         </div>
     </div>
     <script src="/assets/js/bootstrap.js"></script>
