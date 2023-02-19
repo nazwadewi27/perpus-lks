@@ -33,7 +33,9 @@
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kategoriUpdate{{ $k->id }}">
                                     <i class="bi bi-pencil-square"></i>    
                                 </button>
-                                <button class="btn btn-danger"><i class="bi bi-trash3-fill"></i></button></td>
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#kategoriDelete{{ $k->id }}">
+                                    <i class="bi bi-trash3-fill"></i>
+                                </button>
                             </td>
                         </tr>
                     @endforeach
@@ -43,4 +45,5 @@
     </div>
 @include('admin.kategori.create')
 @include('admin.kategori.edit')
+@include('admin.kategori.delete')
 @endsection

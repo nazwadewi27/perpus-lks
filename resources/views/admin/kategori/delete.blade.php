@@ -1,9 +1,9 @@
-@foreach ( $anggota as $ang )
+@foreach ( $kategori as $k )
     <!-- Modal -->
-    <div class="modal fade" id="anggotaDelete{{ $ang->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="kategoriDelete{{ $k->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
-            <form action="{{ url('admin/anggota/delete', $ang->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ url('admin/kategori/delete', $k->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('DELETE')
                 <div class="modal-body">

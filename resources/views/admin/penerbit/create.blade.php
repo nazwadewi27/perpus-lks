@@ -18,14 +18,6 @@
                     <label for="formGroupExampleInput" class="form-label">Nama</label>
                     <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nama" name="nama" required>               
                 </div>
-                <div class="col-12 col-md-6 col-lg-6 mb-3">
-                    <label for="formGroupExampleInput" class="form-label">Verifikasi</label>
-                    <select class="form-select" name="penerbit">
-                        <option>Pilih Verifikasi</option>
-                        <option value="verified">Verified</option>
-                        <option value="unverified">Unverified</option>
-                    </select>
-                </div>
             </div>
             <button type="submit" class="btn btn-primary">Add</button>
           </div>

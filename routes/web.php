@@ -53,13 +53,16 @@ Route::prefix('admin')->group( function(){
     Route::get('/buku', [BukuController::class, 'index'])->name('buku.index');
     Route::post('/buku/add', [BukuController::class, 'store'])->name('buku.add');
     Route::put('/buku/update/{id}', [BukuController::class , 'update'])->name('buku.update');
+    Route::delete('/buku/delete/{id}', [BukuController::class, 'destroy'])->name('buku.delete');
     //penerbit
     Route::get('/penerbit', [PenerbitController::class, 'index'])->name('penerbit.index');
     Route::post('/penerbit/add', [PenerbitController::class, 'store'])->name('penerbit.add');
     Route::put('/penerbit/update/{id}', [PenerbitController::class , 'update'])->name('penerbit.update');
+    Route::delete('/penerbit/delete/{id}', [PenerbitController::class, 'destroy'])->name('penerbit.delete');
     //kategori
     Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori.index');
     Route::post('/kategori/add', [KategoriController::class, 'store'])->name('kategori.add');
     Route::put('/kategori/update/{id}', [KategoriController::class , 'update'])->name('kategori.update');
+    Route::delete('/kategori/delete/{id}', [KategoriController::class, 'destroy'])->name('kategori.delete');
 
 });

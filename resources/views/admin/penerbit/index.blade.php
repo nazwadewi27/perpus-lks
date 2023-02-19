@@ -35,7 +35,9 @@
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#penerbitUpdate{{ $p->id }}">
                                     <i class="bi bi-pencil-square"></i>    
                                 </button>
-                                <button class="btn btn-danger"><i class="bi bi-trash3-fill"></i></button></td>
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#penerbitDelete{{ $p->id }}">
+                                    <i class="bi bi-trash3-fill"></i>
+                                </button>
                             </td>
                         </tr>
                     @endforeach
@@ -45,4 +47,5 @@
     </div>
 @include('admin.penerbit.create')
 @include('admin.penerbit.edit')
+@include('admin.penerbit.delete')
 @endsection

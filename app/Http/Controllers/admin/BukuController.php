@@ -91,8 +91,11 @@ class BukuController extends Controller
      * @param  \App\Models\Buku  $buku
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Buku $buku)
+    public function destroy($id)
     {
-        //
+        $buku = Buku::find($id);
+        $buku->delete();
+
+        return redirect()->back();
     }
 }

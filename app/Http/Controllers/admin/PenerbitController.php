@@ -93,8 +93,11 @@ class PenerbitController extends Controller
      * @param  \App\Models\Penerbit  $penerbit
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Penerbit $penerbit)
+    public function destroy($id)
     {
-        //
+        $penerbit = Penerbit::find($id);
+        $penerbit->delete();
+
+        return redirect()->back();
     }
 }

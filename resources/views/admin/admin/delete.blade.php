@@ -1,7 +1,7 @@
 @foreach ( $admin as $adm )
     <!-- Modal -->
     <div class="modal fade" id="adminDelete{{ $adm->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <form action="{{ url('admin/administrator/delete', $adm->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
