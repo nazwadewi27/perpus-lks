@@ -41,7 +41,11 @@ class PenerbitController extends Controller
     public function store(Request $request)
     {
         $penerbit = Penerbit::all();
-        $penerbit = Penerbit::create($request->all());
+        $penerbit = Penerbit::create([
+            'kode' => $request->kode,
+            'nama' => $request->nama,
+            'verif' => 'verified',
+        ]);
 
         return redirect()->back();
     }
@@ -75,9 +79,12 @@ class PenerbitController extends Controller
      * @param  \App\Models\Penerbit  $penerbit
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Penerbit $penerbit)
+    public function update(Request $request, $id)
     {
-        //
+        $penerbit = Penerbit::find($id);
+        $penerbit->update($request->all());
+
+        return redirect()->back();
     }
 
     /**

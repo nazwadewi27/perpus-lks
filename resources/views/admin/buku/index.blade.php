@@ -37,7 +37,10 @@
                             <td>{{ $b->j_buku_baik }}</td>
                             <td>{{ $b->j_buku_rusak }}</td>
                             <td>
-                                <button class="btn btn-primary"><i class="bi bi-pencil-square"></i></button>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bukuUpdate{{ $b->id }}">
+                                    <i class="bi bi-pencil-square"></i>    
+                                </button>
                                 <button class="btn btn-danger"><i class="bi bi-trash3-fill"></i></button></td>
                             </td>
                         </tr>
@@ -47,4 +50,5 @@
         </div>
     </div>
 @include('admin.buku.create')
+@include('admin.buku.edit')
 @endsection

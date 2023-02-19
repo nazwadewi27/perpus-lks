@@ -75,9 +75,12 @@ class KategoriController extends Controller
      * @param  \App\Models\Kategori  $kategori
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Kategori $kategori)
+    public function update(Request $request, $id)
     {
-        //
+        $kategori = Kategori::find($id);
+        $kategori->update($request->all());
+
+        return redirect()->back();
     }
 
     /**

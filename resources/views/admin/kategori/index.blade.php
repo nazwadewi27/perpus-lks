@@ -29,7 +29,10 @@
                             <td>{{ $k->kode }}</td>
                             <td>{{ $k->nama }}</td>
                             <td>
-                                <button class="btn btn-primary"><i class="bi bi-pencil-square"></i></button>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kategoriUpdate{{ $k->id }}">
+                                    <i class="bi bi-pencil-square"></i>    
+                                </button>
                                 <button class="btn btn-danger"><i class="bi bi-trash3-fill"></i></button></td>
                             </td>
                         </tr>
@@ -39,4 +42,5 @@
         </div>
     </div>
 @include('admin.kategori.create')
+@include('admin.kategori.edit')
 @endsection

@@ -87,8 +87,13 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $admin = User::find($id);
+        $admin = User::where('role' , 'admin')->where('id' , $id);
+        $admin->update([
+            'fullname' => $request->fullname,
+            'username' => $request->username
+        ]);
 
+        return redirect()->back();
     }
 
     /**
@@ -99,6 +104,9 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $admin = User::where('role', 'admin')->where('id', $id);
+        $admin->delete();
+
+        return redirect()->back();
     }
 }

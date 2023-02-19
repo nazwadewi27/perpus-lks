@@ -31,7 +31,10 @@
                             <td>{{ $p->nama }}</td>
                             <td>{{ $p->verif }}</td>
                             <td>
-                                <button class="btn btn-primary"><i class="bi bi-pencil-square"></i></button>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#penerbitUpdate{{ $p->id }}">
+                                    <i class="bi bi-pencil-square"></i>    
+                                </button>
                                 <button class="btn btn-danger"><i class="bi bi-trash3-fill"></i></button></td>
                             </td>
                         </tr>
@@ -41,4 +44,5 @@
         </div>
     </div>
 @include('admin.penerbit.create')
+@include('admin.penerbit.edit')
 @endsection

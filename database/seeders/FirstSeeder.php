@@ -54,34 +54,34 @@ class FirstSeeder extends Seeder
         ]);
 
         Kategori::create([
-            'kode' => 'B1',
+            'kode' => 'B01',
             'nama' => 'Umum',
         ]);
 
         Kategori::create([
-            'kode' => 'B2',
+            'kode' => 'B02',
             'nama' => 'Sains',
         ]);
 
         Kategori::create([
-            'kode' => 'B3',
+            'kode' => 'B03',
             'nama' => 'Sejarah',
         ]);
 
         Penerbit::create([
-            'kode' => 'P1',
+            'kode' => 'P01',
             'nama' => 'Erlangga',
             'verif' => 'verified',
         ]);
 
         Penerbit::create([
-            'kode' => 'P2',
+            'kode' => 'P02',
             'nama' => 'BSE',
             'verif' => 'verified',
         ]);
 
         Penerbit::create([
-            'kode' => 'P3',
+            'kode' => 'P03',
             'nama' => 'KKPK',
             'verif' => 'verified',
         ]);

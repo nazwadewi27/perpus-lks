@@ -27,8 +27,8 @@
                     <input type="password" class="form-control" id="formGroupExampleInput" placeholder="Password" name="password" required>               
                   </div>
                   <div class="col-12 col-md-6 col-lg-6 mb-3">
-                    <label for="formGroupExampleInput" class="form-label">Nis</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" name="nis" required>               
+                    <label for="formGroupExampleInput" class="form-label">NIS</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="NIS" name="nis" required>               
                   </div>
                   <div class="col-12 col-md-6 col-lg-6 mb-3">
                     <label for="formGroupExampleInput" class="form-label">Kelas</label>

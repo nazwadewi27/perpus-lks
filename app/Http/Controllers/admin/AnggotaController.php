@@ -50,7 +50,7 @@ class AnggotaController extends Controller
             'password' => bcrypt($request->password),
             'kelas' => $request->kelas,
             'alamat' => $request->alamat,
-            'verif' => 'verified',
+            'verif' => 'unverified',
             'role' => 'user',
             'join_date' => Carbon::now(),
             'terakhir_login' => $request->terakhir_login,
@@ -91,7 +91,17 @@ class AnggotaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $anggota = User::where('role', 'user')->where('id', $id );
+        $anggota->update([
+            'nis' => $request->nis,
+            'fullname' => $request->fullname,
+            'username' => $request->username,
+            'kelas' => $request->kelas,
+            'alamat' => $request->alamat,
+            'verif' => $request->verif_id,
+        ]);
+
+        return redirect()->back();
     }
 
     /**
@@ -102,6 +112,9 @@ class AnggotaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $anggota = User::where('role', 'user')->where('id', $id);
+        $anggota->delete();
+
+        return redirect()->back();
     }
 }

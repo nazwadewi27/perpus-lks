@@ -22,6 +22,7 @@
                         <th>Nama Pengguna</td>
                         <th>Kata Sandi</td>
                         <th>Terakhir Login</td>
+                        <th>Verifikasi</th>
                         <th>Aksi</td>
                     </tr>
                 </thead>
@@ -34,9 +35,16 @@
                             <td>{{ $adm->username }}</td>
                             <td>{{ str_pad('', strlen($adm->password), '•') }}</td>
                             <td>{{ $adm->terakhir_login }}</td>
+                            <td>{{ $adm->verif }}</td>
                             <td>
-                                <button class="btn btn-primary"><i class="bi bi-pencil-square"></i></button>
-                                <button class="btn btn-danger"><i class="bi bi-trash3-fill"></i></button></td>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#adminUpdate{{ $adm->id }}">
+                                    <i class="bi bi-pencil-square"></i>    
+                                </button>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#adminDelete{{ $adm->id }}">
+                                    <i class="bi bi-trash3-fill"></i>
+                                </button>
                             </td>
                         </tr>
                     @endforeach
@@ -46,4 +54,6 @@
     </div>
     </div>
 @include('admin.admin.create')
+@include('admin.admin.edit')
+@include('admin.admin.delete')
 @endsection

@@ -77,9 +77,12 @@ class BukuController extends Controller
      * @param  \App\Models\Buku  $buku
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Buku $buku)
+    public function update(Request $request, $id)
     {
-        //
+        $buku = Buku::find($id);
+        $buku->update($request->all());
+
+        return redirect()->back();
     }
 
     /**
