@@ -106,14 +106,14 @@
                             </a>
                             <ul class="submenu ">
                                 <li class="submenu-item ">
-                                    <a href="">Pesan masuk
-                                        {{--  <span class="badge bg-light-danger badge-pill badge-round float-right mt-50">
-                                                {{ count($pesan) }}
-                                        </span>  --}}
+                                    <a href="{{ route('admin.pesan_masuk') }}">Pesan masuk
+                                         <span class="badge bg-light-danger badge-pill badge-round float-right mt-50">
+                                                {{-- {{ count($pesan) }} --}}
+                                        </span> 
                                 </a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="">Pesan terkirim</a>
+                                    <a href="{{ route('admin.pesan_terkirim') }}">Pesan terkirim</a>
                                 </li>
                             </ul>
                         </li>
@@ -154,17 +154,17 @@
                             <i class="bi bi-envelope bi-sub fs-4"></i>
                           </a>
                           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-                            {{-- @php
+                            @php
                             $pesans = \App\Models\Pesan::where('status' , 'terkirim')
                             ->where('pengirim_id' , '!=' , Auth::user()->id)
                             ->where('penerima_id' , Auth::user()->id)
                             ->orderBy('created_at' , 'desc')
                             ->get();
-                            @endphp --}}
+                            @endphp
                             <li>
                               <h6 class="dropdown-header">Mail</h6>
                             </li>
-                            {{-- @foreach ($pesans as $p)
+                            @foreach ($pesans as $p)
                             <form action="{{ route('user.pesan.masuk.update') }}" method="POST">
                               @csrf
                               <button class="dropdown-item" type="submit"><input type="hidden" name="id" value="{{ $p->id }}">
@@ -184,7 +184,7 @@
                                 </div>
                               </button>
                             </form>
-                            @endforeach --}}
+                            @endforeach
                           </ul>
                         </li>
                         <li class="nav-item dropdown me-3">
@@ -222,12 +222,12 @@
                         <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
                           <div class="user-menu d-flex">
                             <div class="user-name text-end me-3">
-                              {{-- <h6 class="mb-0 text-gray-600">{{ Auth::user()->username }}</h6>
-                              <p class="mb-0 text-sm text-gray-600">{{ Auth::user()->role }}</p> --}}
+                              <h6 class="mb-0 text-gray-600">{{ Auth::user()->username }}</h6>
+                              <p class="mb-0 text-sm text-gray-600">{{ Auth::user()->role }}</p>
                             </div>
                             <div class="user-img d-flex align-items-center">
                               <div class="avatar avatar-md">
-                                {{-- <img src="/img/profile/{{ Auth::user()->foto == null ? 'profile.png' : Auth::user()->foto  }}" /> --}}
+                                <img src="/img/profile/{{ Auth::user()->foto == null ? 'profile.png' : Auth::user()->foto  }}" />
                               </div>
                             </div>
                           </div>

@@ -72,25 +72,26 @@ class IdentitasController extends Controller
      */
     public function update(Request $request, Identitas $identitas)
     {
-        if ($request->foto != null) {
-            $imageName = time() . '.' . $request->foto->extension();
-
-            $request->foto->move(public_path('img/identitas/'), $imageName);
-
-            $user = Identitas::find(1)->update($request->all());
-
-            $user2 = Identitas::find(1)->update([
-                "foto" => $imageName
+        $identitas = Identitas::first();
+        if ($request->foto == null) {
+            $identitas->update([
+                'nama_app' => $request->nama_app,
+                'email_app' => $request->email_app,
+                'nomor_hp' => $request->nomor_hp,
+                'alamat_hp' => $request->alamat_hp,
             ]);
-
-            if ($user && $user2) {
-                return redirect()->back();
-            }
         } else {
-            $user = Identitas::find(1)->update($request->all());
-
-            return redirect()->back();
+            $imageName = time() . '.' . $request->foto->extension();
+            $request->foto->move(public_path('img'), $imageName);
+            $identitas->update([
+                'nama_app' => $request->nama_app,
+                'email_app' => $request->email_app,
+                'nomor_hp' => $request->nomor_hp,
+                'alamat_hp' => $request->alamat_hp,
+                "foto" => "/img/" . $imageName
+            ]);
         }
+        return redirect()->back()->with("status", "danger")->with('message', 'Gagal mengubah profile');
     }
 
     /**

@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\AnggotaController;
 use App\Http\Controllers\admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\admin\PesanController as AdminPesanController;
 use App\Http\Controllers\admin\BukuController;
 use App\Http\Controllers\admin\KategoriController;
 use App\Http\Controllers\admin\PeminjamanController;
@@ -34,6 +35,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::prefix('user')->group(function(){
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('user.dashboard');
+    //pessan
+    Route::get('/pesan-terkirim', [PesanController::class, 'pesan_terkirim'])->name('user.pesan_terkirim');
+    Route::post('/kirim-pesan', [PesanController::class, 'kirim_pesan'])->name('user.kirim_pesan');
+
+    Route::get('/pesan-masuk', [PesanController::class, 'pesan_masuk'])->name('user.pesan_masuk');
+    Route::post('/ubah-status', [PesanController::class, 'ubah_status'])->name('user.ubah_status');
 });
 
 Route::prefix('admin')->group( function(){
@@ -42,7 +49,7 @@ Route::prefix('admin')->group( function(){
     Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
     //Identitas
     Route::get('/identitas', [IdentitasController::class, 'index'])->name('admin.identitas');
-    Route::put('/identitas/update/{id}', [IdentitasController::class , 'update'])->name('admin.identitas.update');
+    Route::put('/edit/identitas', [IdentitasController::class, 'update'])->name('admin.update_identitas');
     //admin
     Route::get('/administrator', [AdminController::class, 'index'])->name('admin.index');
     Route::post('/administrator/add', [AdminController::class, 'store'])->name('admin.add');
@@ -68,5 +75,11 @@ Route::prefix('admin')->group( function(){
     Route::post('/kategori/add', [KategoriController::class, 'store'])->name('kategori.add');
     Route::put('/kategori/update/{id}', [KategoriController::class , 'update'])->name('kategori.update');
     Route::delete('/kategori/delete/{id}', [KategoriController::class, 'destroy'])->name('kategori.delete');
+    //pesan
+    Route::get('/pesan-masuk', [AdminPesanController::class, 'pesanMasuk'])->name('admin.pesan_masuk');
+    Route::post('/admin-status', [AdminPesanController::class, 'admin_status'])->name('admin.ubah_status');
+
+    Route::get('/pesan-terkirim', [AdminPesanController::class, 'pesanTerkirim'])->name('admin.pesan_terkirim');
+    Route::post('/kirim-pesan', [AdminPesanController::class, 'kirimPesan'])->name('admin.kirim_pesan');
 
 });
