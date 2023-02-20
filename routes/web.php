@@ -10,6 +10,9 @@ use App\Http\Controllers\admin\PeminjamanController;
 use App\Http\Controllers\admin\PenerbitController;
 use App\Http\Controllers\admin\IdentitasController;
 use App\Http\Controllers\user\DashboardController;
+use App\Http\Controllers\user\PeminjamanController as UserPeminjamanController;
+use App\Http\Controllers\user\PengembalianController;
+use App\Http\Controllers\user\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -35,6 +38,18 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::prefix('user')->group(function(){
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('user.dashboard');
+    //peminjaman
+    Route::get('/peminjaman', [UserPeminjamanController::class, 'index'])->name('user.peminjaman.index');
+    Route::get('/peminjaman/form' , [UserPeminjamanController::class , 'indexForm'])->name('user.peminjaman.form');
+    Route::post('/peminjaman/add', [UserPeminjamanController::class, 'store'])->name('user.peminjaman.add');
+    Route::post('/form_peminjaman' , [PeminjamanController::class , 'form']);
+    //pengembalian
+    Route::get('/pengembalian', [PengembalianController::class, 'index'])->name('user.pengembalian.index');
+    Route::post('/pengembalian/add', [PengembalianController::class, 'store'])->name('user.pengembalian.add');
+    Route::get('/pengembalian/form', [PengembalianController::class, 'form'])->name('user.pengembalian.form');
+    //profile
+    Route::get('/profile' , [ProfileController::class, 'index'])->name('user.profile');
+    Route::put('/profile/update/', [ProfileController::class , 'update'])->name('user.profile.update');
     //pessan
     Route::get('/pesan-terkirim', [PesanController::class, 'pesan_terkirim'])->name('user.pesan_terkirim');
     Route::post('/kirim-pesan', [PesanController::class, 'kirim_pesan'])->name('user.kirim_pesan');
@@ -49,7 +64,7 @@ Route::prefix('admin')->group( function(){
     Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
     //Identitas
     Route::get('/identitas', [IdentitasController::class, 'index'])->name('admin.identitas');
-    Route::put('/edit/identitas', [IdentitasController::class, 'update'])->name('admin.update_identitas');
+    Route::put('/identitas/edit/{id}', [IdentitasController::class, 'update']);
     //admin
     Route::get('/administrator', [AdminController::class, 'index'])->name('admin.index');
     Route::post('/administrator/add', [AdminController::class, 'store'])->name('admin.add');

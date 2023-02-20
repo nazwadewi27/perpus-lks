@@ -4,6 +4,8 @@ namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Pemberitahuan;
+use App\Models\Buku;
 
 class DashboardController extends Controller
 {
@@ -14,7 +16,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        //
+        $pemberitahuan = Pemberitahuan::where('status', 'aktif')->get();
+        $buku = Buku::all();
+
+        return view('user.dashboard', compact('pemberitahuan', 'buku'));
     }
 
     /**

@@ -1,73 +1,62 @@
 @extends('layouts.admin')
-@section('content')
-    <div class="mb-3">
-        <center>
-            <h3>Identitas Aplikasi</h3>
-        </center>
-    </div>
-    <div class="mb-3">
-        <center>
-            <img src="{{ $identitas->foto }}" class="rounded-circle" style="width: 150px;" alt="Avatar" />
-
-        </center>
-
-    </div>
-
-    <form class="form form-vertical" action="{{ url('admin/edit/identitas') }}" method="POST" enctype="multipart/form-data">
-        @csrf
-        @method('put')
-        <div class="card">
-            <div class="card-header">
-                <h4 class="card-title">Edit Identitas Aplikasi</h4>
+@section('main')
+    <div class="row">
+        <div class="col-7 col-md-7">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Form Identitas</h4>
+                </div>
+                @foreach ($identitas as $i)
+                <div class="card-body">
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        @method('PUT')
+                        @csrf
+                        <div class="row">
+                            <div class="col-6 col-md-6">
+                                <label>Nama App</label>
+                                <input type="text" name="nama_app" class="form-control" value="{{$i->nama_app}}">
+                            </div>
+                            <div class="col-6 col-md-6">
+                                <label>Email App</label>
+                                <input type="text" name="email_app" class="form-control"value="{{$i->email_app}}">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-md-6">
+                                <label>Alamat</label>
+                                <textarea name="alamat" class="form-control" rows="4" cols="8">{{$i->alamat}}</textarea>
+                            </div>
+                            <div class="col-6 col-md-6">
+                                <label>Nomor HP App</label>
+                                <input type="text" name="nomor_hp" class="form-control" value="{{$i->nomor_hp}}">
+                                <label class="mt-2">Foto/Gambar</label>
+                                <input type="file" name="gambar" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-12">
+                                <button type="submit" class="btn btn-primary mt-3 w-100">Update</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                @endforeach
             </div>
-            <div class="card-body">
-                <table class="table table-striped table bordered">
-                    <tr>
-                        <th>Foto</th>
-                        <td>
-                            <input type="file" class="form-control" name="foto" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Nama Applikasi</th>
-                        <td>
-                            <input type="text" class="form-control" name="nama_app" value="{{ $identitas->nama_app }}" />
-                        </td>
-                    </tr>
+        </div>
+        <div class="col-5 col-md-5">
+            <div class="card">
+                <div class="card-header">
+                    <img src="{{ $i->gambar ? asset($i->gambar) : asset('/images/image.png') }}" alt="" class="card-img w-100" style="height:200px">
+                </div>
+                <div class="card-body">
+                    <p>Nama App: {{$i->nama_app}}</p>
+                    <p>Email App: {{$i->email_app}}</p>
+                    <p>Nomor HP App: {{$i->nomor_hp}}</p>
+                    <p>Alamat App</p>
+                    <textarea class="form-control" rows="3" cols="8" disabled>{{$i->alamat}}</textarea >
 
-                    <tr>
-                        <th>Alamat Lengkap</th>
-                        <td>
-                            <textarea class="form-control" name="alamat_app" id="exampleFormControlTextarea1" rows="3">{{ $identitas->alamat_app }}</textarea>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <th>Email</th>
-                        <td>
-                            <input type="email" class="form-control" name="email_app"
-                                value="{{ $identitas->email_app }}" />
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <th>No Telp</th>
-                        <td>
-                            <input type="number" class="form-control" name="nomor_hp" value="{{ $identitas->nomor_hp }}" />
-                        </td>
-                    </tr>
-
-                </table>
-
-                <div class="col-12 d-flex justify-content-start">
-                    <button type="submit" class="btn btn-primary me-1 mb-1">
-                        Submit
-                    </button>
                 </div>
             </div>
         </div>
-    </form>
-    </div>
-    </div>
     </div>
 @endsection

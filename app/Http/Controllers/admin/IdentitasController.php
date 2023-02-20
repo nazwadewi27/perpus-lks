@@ -72,26 +72,27 @@ class IdentitasController extends Controller
      */
     public function update(Request $request, Identitas $identitas)
     {
-        $identitas = Identitas::first();
-        if ($request->foto == null) {
-            $identitas->update([
-                'nama_app' => $request->nama_app,
-                'email_app' => $request->email_app,
-                'nomor_hp' => $request->nomor_hp,
-                'alamat_hp' => $request->alamat_hp,
-            ]);
-        } else {
-            $imageName = time() . '.' . $request->foto->extension();
-            $request->foto->move(public_path('img'), $imageName);
-            $identitas->update([
-                'nama_app' => $request->nama_app,
-                'email_app' => $request->email_app,
-                'nomor_hp' => $request->nomor_hp,
-                'alamat_hp' => $request->alamat_hp,
-                "foto" => "/img/" . $imageName
-            ]);
+        if($request->gambar){
+
+            $img = $request->file('gambar');
+            $filename = $img->getClientOriginalName();
+
+            if ($request->hasFile('gambar')) {
+                $request->file('gambar')->storeAs('/identitas',$filename);
+            }
+            $gambar = $request->file('gambar')->getClientOriginalName();
+            $result = '/storage/identitas/'.$gambar;
+        }else{  
+            $result = null;
         }
-        return redirect()->back()->with("status", "danger")->with('message', 'Gagal mengubah profile');
+        Identitas::find($id)->update([
+            'gambar' => $result,
+            'nama_app' => $request->nama_app,
+            'email_app' => $request->email_app,
+            'alamat' => $request->alamat,
+            'nomor_hp' => $request->nomor_hp,
+        ]);
+        return redirect()->back();
     }
 
     /**
